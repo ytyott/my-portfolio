@@ -146,22 +146,29 @@
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Image 1: Portraits --><div
-          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        <!-- Category 1: Portraits -->
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Portraits"
+          data-images='[
+            {"src": "a-man-in-Desert.jpg", "title": "Man in Desert", "time": "2025-10-20"},
+            {"src": "images/potrait.jpg", "title": "Portrait 1", "time": "2025-09-15"},
+            {"src": "images/potrait 2.jpg", "title": "Portrait 2", "time": "2025-09-14"},
+            {"src": "images/potrait 3.jpg", "title": "Portrait 3", "time": "2025-09-13"},
+            {"src": "images/potrait 4.jpg", "title": "Portrait 4", "time": "2025-09-12"}
+          ]'
         >
-          <!-- The 'group-hover:scale-105' class on the img already handles the zoom effect --><img
+          <img
             loading="lazy"
             src="a-man-in-Desert.jpg"
-            data-src="a-man-in-Desert.jpg"
-            alt="A man walking in the desert"
-            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            alt="Portraits"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
             <h3 class="text-white text-lg font-semibold">Portraits</h3>
           </div>
         </div>
-
         <!-- Image 2: Nature --><div
           class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
         >
