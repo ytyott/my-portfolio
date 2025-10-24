@@ -13,7 +13,7 @@
     
     <!-- Custom Tailwind Config for 'Inter' font -->
     <script>
-        tailwind.config = {
+        tailwind..config = {
             theme: {
                 extend: {
                     fontFamily: {
@@ -83,13 +83,12 @@
                 
                 <!-- Image 1: Portraits -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- EDITED THIS LINE: Removed 'images/' -->
+                    <!-- This path is correct based on your file list -->
                     <img src="a-man-in-Desert.jpg" 
                          data-src="a-man-in-Desert.jpg" 
                          alt="A man walking in the desert"
                          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
                     
-                    <!-- This is the heading -->
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
                         <h3 class="text-white text-lg font-semibold">Portraits</h3>
                     </div>
@@ -97,13 +96,12 @@
 
                 <!-- Image 2: Nature -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- EDITED THIS LINE: Removed 'images/' -->
+                    <!-- This path is correct based on your file list -->
                     <img src="sunset.jpg" 
                          data-src="sunset.jpg" 
                          alt="A beautiful sunset landscape"
                          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
                     
-                    <!-- This is the heading -->
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
                         <h3 class="text-white text-lg font-semibold">Nature</h3>
                     </div>
@@ -111,13 +109,12 @@
 
                 <!-- Image 3: Wildlife -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- EDITED THIS LINE: Removed 'images/' -->
+                    <!-- This path is correct based on your file list -->
                     <img src="Horeses.jpg" 
                          data-src="Horeses.jpg" 
                          alt="A photo of horses"
                          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
                     
-                    <!-- This is the heading -->
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
                         <h3 class="text-white text-lg font-semibold">Wildlife</h3>
                     </div>
@@ -125,13 +122,12 @@
 
                 <!-- Image 5: Street -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- EDITED THIS LINE: Removed 'images/' -->
+                    <!-- This path is correct based on your file list -->
                     <img src="street.jpg" 
                          data-src="street.jpg" 
                          alt="A street photography shot"
                          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
                     
-                    <!-- This is the heading -->
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
                         <h3 class="text-white text-lg font-semibold">Street</h3>
                     </div>
@@ -139,13 +135,13 @@
 
                 <!-- Image 6: Travel -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- EDITED THIS LINE: Removed 'images/' AND fixed typo object.cover -->
+                    <!-- This path is correct based on your file list -->
+                    <!-- I ALSO FIXED THE object.cover TYPO HERE -->
                     <img src="travel.jpg" 
                          data-src="travel.jpg" 
                          alt="A travel photograph"
                          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
                     
-                    <!-- This is the heading -->
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
                         <h3 class="text-white text-lg font-semibold">Travel</h3>
                     </div>
@@ -160,7 +156,7 @@
             
             <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
                 <!-- Profile Picture -->
-                <!-- EDITED THIS LINE: Removed 'images/' -->
+                <!-- This path is correct based on your file list -->
                 <img src="profile.png" 
                      alt="A photo of me"
                      class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700">
@@ -271,7 +267,6 @@
                 threshold: 0.4  // 40% of the section must be visible
             };
 
-            // ** THIS IS THE FIX ** (Removed the extra '.')
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
