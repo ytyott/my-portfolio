@@ -44,8 +44,26 @@
       animation: blink-caret 0.75s step-end infinite;
     }
 
-    /* --- REMOVED Shutter Animation --- */
-    /* --- REMOVED Arrow Animation --- */
+    /* --- 1. Image Zoom Effect --- */
+    /* The 'group-hover:scale-105' class already handles this for gallery images */
+
+    /* --- 2. Profile Picture Pulse Animation --- */
+    @keyframes pulse-border {
+      0% {
+        box-shadow: 0 0 0 0 rgba(107, 114, 128, 0.4); /* gray-500 with opacity */
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(107, 114, 128, 0); /* fades out and expands */
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(107, 114, 128, 0);
+      }
+    }
+
+    .animate-profile-pulse {
+      animation: pulse-border 2s infinite;
+    }
+
 
   </style>
 </head>
@@ -53,7 +71,6 @@
 <body class="bg-gray-900 text-gray-300 font-sans antialiased">
   <!-- ===== Header ===== --><header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- 4. Reverted Name Style to Grey -->
       <a href="#" class="text-2xl font-bold text-gray-400 hover:text-sky-400 transition-colors">
         <span 
           id="rajesh-name"
@@ -66,8 +83,7 @@
         <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a></li>
       </ul>
 
-      <!-- 3. Colorful Social Media Hovers -->
-      <div class="flex items-center space-x-5 text-gray-400">
+      <!-- Colorful Social Media Hovers --><div class="flex items-center space-x-5 text-gray-400">
         <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram"
           class="hover:text-pink-500 transition-all hover:scale-110">
           <i class="fab fa-instagram text-xl"></i>
@@ -84,13 +100,10 @@
     </nav>
   </header>
 
-  <!-- ===== REMOVED SVG Arrow ===== -->
-
   <!-- ===== Main Content ===== --><main class="container mx-auto px-6">
     <!-- ===== Gallery Section ===== --><section id="home" class="py-20 pt-24 md:pt-32">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
         Gallery
-        <!-- 2. REMOVED Camera Icon -->
       </h2>
       <p class="text-lg text-gray-400 mb-10 max-w-3xl">
         A collection of my favorite work. Click any image to see it larger.
@@ -100,7 +113,7 @@
         <!-- Image 1: Portraits --><div
           class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
         >
-          <img
+          <!-- The 'group-hover:scale-105' class on the img already handles the zoom effect --><img
             loading="lazy"
             src="a-man-in-Desert.jpg"
             data-src="a-man-in-Desert.jpg"
@@ -183,10 +196,10 @@
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
 
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <img
+        <!-- 2. Added animate-profile-pulse class to the profile image --><img
           src="profile.png"
           alt="A photo of me"
-          class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700"
+          class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700 animate-profile-pulse"
           onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile+Pic'; this.onerror=null;"
         />
 
@@ -282,56 +295,48 @@
       // --- Typewriter Effect for Name ---
       const nameElement = document.getElementById('rajesh-name');
       const cursorElement = document.getElementById('cursor');
-      const nameToType = "Rajəsh"; // <-- 1. Changed to 'ə'
+      const nameToType = "Rajəsh";
       let i = 0;
       let isTyping = true;
-      const typingSpeed = 250; // <-- 2. Made typing slower (was 150)
+      const typingSpeed = 250;
       const deleteSpeed = 150;
-      const pauseEnd = 2000; // Pause 2s after typing
-      const pauseStart = 500; // Pause 0.5s after deleting
+      const pauseEnd = 2000;
+      const pauseStart = 500;
 
       function typeLoop() {
-        // Ensure cursor is visible and blinking while typing/deleting
         if (cursorElement) {
             cursorElement.style.animation = 'blink-caret 0.75s step-end infinite';
-            cursorElement.style.borderRight = '2px solid #9ca3af'; // Back to gray cursor
+            cursorElement.style.borderRight = '2px solid #9ca3af';
         }
 
         if (isTyping) {
-          // --- Typing ---
           if (i < nameToType.length) {
             nameElement.textContent += nameToType.charAt(i);
             i++;
             setTimeout(typeLoop, typingSpeed);
           } else {
-            // --- Finished typing, wait then delete ---
             isTyping = false;
-            // Make cursor solid (no blink) during pause
             if (cursorElement) {
                 cursorElement.style.animation = 'none';
             }
             setTimeout(typeLoop, pauseEnd);
           }
         } else {
-          // --- Deleting ---
           if (i > 0) {
             nameElement.textContent = nameToType.substring(0, i - 1);
             i--;
             setTimeout(typeLoop, deleteSpeed);
           } else {
-            // --- Finished deleting, wait then type ---
             isTyping = true;
             setTimeout(typeLoop, pauseStart);
           }
         }
       }
 
-      // Start the typewriter loop
       typeLoop();
 
     });
   </script>
 </body>
 </html>
-
 
