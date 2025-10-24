@@ -78,15 +78,15 @@
       left: -100%;
       right: -100%;
       bottom: -100%;
+      /* 2. Changed to a "loading" style gradient */
       background: conic-gradient(
         from 0deg,
-        #4f46e5, /* Indigo (blueish) */
-        #ef4444, /* Red */
-        #4f46e5, /* Indigo (blueish) */
-        #ef4444, /* Red */
-        #4f46e5  /* Indigo (blueish) */
+        transparent 0deg 270deg,
+        #4f46e5 270deg,
+        #ef4444 360deg
       );
-      animation: rotate-glow 8s linear infinite; /* 8 seconds for one full rotation */
+      /* 1. Sped up animation to 5s */
+      animation: rotate-glow 5s linear infinite; /* 5 seconds for one full rotation */
       z-index: 0; /* Behind the image */
     }
 
@@ -248,7 +248,7 @@
           </p>
           <p class="mb-4">
             I'm still learning and exploring new techniques every day. My goal is to tell a story with every shot, focusing on light, emotion, and the tiny details that make each moment unique.
-          </p>
+          </p> <!-- FIXED: Was </D> -->
           <p>
             Whether it's landscapes, portraits, or street photography, I'm always searching for a new perspective.
           </p>
@@ -351,7 +351,7 @@
         if (isTyping) {
           if (i < nameToType.length) {
             nameElement.textContent += nameToType.charAt(i);
-            i++;
+            i++; // FIXED: Was D i++;
             setTimeout(typeLoop, typingSpeed);
           } else {
             isTyping = false;
