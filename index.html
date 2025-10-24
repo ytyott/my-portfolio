@@ -13,7 +13,8 @@
     
     <!-- Custom Tailwind Config for 'Inter' font -->
     <script>
-        tailwind..config = {
+        // **FIXED:** Removed the extra dot from 'tailwind..config'
+        tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
@@ -136,7 +137,7 @@
                 <!-- Image 6: Travel -->
                 <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
                     <!-- This path is correct based on your file list -->
-                    <!-- I ALSO FIXED THE object.cover TYPO HERE -->
+                    <!-- **FIXED:** Changed 'object.cover' to 'object-cover' -->
                     <img src="travel.jpg" 
                          data-src="travel.jpg" 
                          alt="A travel photograph"
