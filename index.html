@@ -1,298 +1,279 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajesh - Photography Portfolio</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Custom Tailwind Config for 'Inter' font -->
-    <script>
-        // **FIXED:** Removed the extra dot from 'tailwind..config'
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                },
-            },
-        };
-    </script>
-    
-    <!-- Custom CSS for the active nav link and lightbox -->
-    <style>
-        /* Add a custom class for the active nav link */
-        .nav-link.active {
-            color: #38bdf8; /* Tailwind 'sky-400' */
-            font-weight: 600;
-        }
-        
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajesh - Photography Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome for Social Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <style>
+    .nav-link.active {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
+
 <body class="bg-gray-900 text-gray-300 font-sans antialiased">
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-white hover:text-sky-400 transition-colors">
+        Rajesh
+      </a>
 
-    <!-- ===== Header & Navigation ===== -->
-    <header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Rajesh -->
-            <a href="#" class="text-2xl font-bold text-white hover:text-sky-400 transition-colors">
-                Rajesh 
-            </a>
-            
-            <!-- Nav Links -->
-            <ul class="hidden md:flex items-center space-x-6">
-                <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition-colors active">Gallery</a></li>
-                <li><a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            </ul>
-            
-            <!-- Social Media Links -->
-            <div class="flex items-center space-x-5 text-gray-400">
-                <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram" class="hover:text-sky-400 transition-transform hover:scale-110">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="https://facebook.com/rajyesnt" target="_blank" aria-label="Facebook" class="hover:text-sky-400 transition-transform hover:scale-110">
-                    <i class="fab fa-facebook text-xl"></i>
-                </a>
-                <a href="https://twitter.com/raj__yes" target="_blank" aria-label="Twitter" class="hover:text-sky-400 transition-transform hover:scale-110">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-            </div>
-        </nav>
-    </header>
+      <ul class="hidden md:flex items-center space-x-6">
+        <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition-colors active">Gallery</a></li>
+        <li><a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a></li>
+        <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a></li>
+      </ul>
 
-    <!-- ===== Main Content ===== -->
-    <main class="container mx-auto px-6">
+      <!-- Social Media -->
+      <div class="flex items-center space-x-5 text-gray-400">
+        <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram"
+          class="hover:text-sky-400 transition-transform hover:scale-110">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://facebook.com/rajyesnt" target="_blank" aria-label="Facebook"
+          class="hover:text-sky-400 transition-transform hover:scale-110">
+          <i class="fab fa-facebook text-xl"></i>
+        </a>
+        <a href="https://twitter.com/raj__yes" target="_blank" aria-label="Twitter"
+          class="hover:text-sky-400 transition-transform hover:scale-110">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-        <!-- ===== Home / Gallery Section ===== -->
-        <section id="home" class="py-20 pt-24 md:pt-32">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h2>
-            <p class="text-lg text-gray-400 mb-10 max-w-3xl">A collection of my favorite work. Click any image to see it larger.</p>
-            
-            <!-- Responsive Image Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Image 1: Portraits -->
-                <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- This path is correct based on your file list -->
-                    <img src="a-man-in-Desert.jpg" 
-                         data-src="a-man-in-Desert.jpg" 
-                         alt="A man walking in the desert"
-                         class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-                        <h3 class="text-white text-lg font-semibold">Portraits</h3>
-                    </div>
-                </div>
+  <!-- ===== Main Content ===== -->
+  <main class="container mx-auto px-6">
+    <!-- ===== Gallery Section ===== -->
+    <section id="home" class="py-20 pt-24 md:pt-32">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h2>
+      <p class="text-lg text-gray-400 mb-10 max-w-3xl">
+        A collection of my favorite work. Click any image to see it larger.
+      </p>
 
-                <!-- Image 2: Nature -->
-                <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- This path is correct based on your file list -->
-                    <img src="sunset.jpg" 
-                         data-src="sunset.jpg" 
-                         alt="A beautiful sunset landscape"
-                         class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-                        <h3 class="text-white text-lg font-semibold">Nature</h3>
-                    </div>
-                </div>
+      <!-- Images must be in the SAME FOLDER as index.html -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Image 1: Portraits -->
+        <div
+          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        >
+          <img
+            loading="lazy"
+            src="a-man-in-Desert.jpg"
+            data-src="a-man-in-Desert.jpg"
+            alt="A man walking in the desert"
+            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Portraits</h3>
+          </div>
+        </div>
 
-                <!-- Image 3: Wildlife -->
-                <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- This path is correct based on your file list -->
-                    <img src="Horeses.jpg" 
-                         data-src="Horeses.jpg" 
-                         alt="A photo of horses"
-                         class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-                        <h3 class="text-white text-lg font-semibold">Wildlife</h3>
-                    </div>
-                </div>
+        <!-- Image 2: Nature -->
+        <div
+          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        >
+          <img
+            loading="lazy"
+            src="sunset.jpg"
+            data-src="sunset.jpg"
+            alt="A beautiful sunset landscape"
+            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Nature</h3>
+          </div>
+        </div>
 
-                <!-- Image 5: Street -->
-                <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <!-- This path is correct based on your file list -->
-                    <img src="street.jpg" 
-                         data-src="street.jpg" 
-                         alt="A street photography shot"
-                         class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-                        <h3 class="text-white text-lg font-semibold">Street</h3>
-                    </div>
-                </div>
+        <!-- Image 3: Wildlife -->
+        <div
+          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        >
+          <!-- NOTE: You corrected 'Horeses.jpg' to 'Horses.jpg' in this version -->
+          <img
+            loading="lazy"
+            src="Horses.jpg"
+            data-src="Horses.jpg"
+            alt="Wildlife horses photo"
+            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Wildlife</h3>
+          </div>
+        </div>
 
-                <!--
-                **FIXED:** ADDED THE "TRAVEL" SECTION BACK IN
-                -->
-                <div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
-                    <img src="travel.jpg" 
-                         data-src="travel.jpg" 
-                         alt="A travel photograph"
-                         class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-                        <h3 class="text-white text-lg font-semibold">Travel</h3>
-                    </div>
-                </div>
-                 
-            </div>
-        </section>
-        
-        <!-- ===== About Section ===== -->
-        <section id="about" class="py-20 border-t border-gray-700">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-                <!-- Profile Picture -->
-                <!-- This path is correct based on your file list -->
-                <img src="profile.png" 
-                     alt="A photo of me"
-                     class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700">
-                
-                <!-- About Text -->
-                <div class="flex-1 text-lg text-gray-300">
-                    <p class="mb-4">Hello! I'm Rajesh, photographer by passion. My journey with photography began years ago, and I've been captivated by the art of capturing moments ever since.</p>
-                    <p class="mb-4">I'm still. My goal is to tell a story with every shot, focusing on the light, emotion, and tiny details that make each moment unique.</p>
-                    <p></lorem20></p>
-                </div>
-            </div>
-        </section>
+        <!-- Image 4: Travel -->
+        <div
+          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        >
+          <img
+            loading="lazy"
+            src="travel.jpg"
+            data-src="travel.jpg"
+            alt="Travel photography"
+            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Travel</h3>
+          </div>
+        </div>
 
-        <!-- ===== Contact Section ===== -->
-        <section id="contact" class="py-20 border-t border-gray-700">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Get In Touch</h2>
-            <p class="text-lg text-gray-400 mb-8 max-w-3xl">I'm always excited to collaborate on new projects or discuss potential commissions. The best way to reach me is by email.</p>
-            
-            <div class="text-lg">
-                <h3 class="text-2xl font-semibold text-white mb-2">Email</h3>
-                <a href="mailto:rajyesnt@gmail.com" class="text-sky-400 hover:text-sky-300 text-xl transition-colors hover:underline">
-                    rajyesnt@gmail.com
-                </a>
-                
-                <h3 class="text-2xl font-semibold text-white mt-8 mb-2">Social Media</h3>
-                <p class="text-gray-400">You can also find me on the links in the header.</p>
-            </div>
-        </section>
+        <!-- Image 5: Street -->
+        <div
+          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        >
+          <img
+            loading="lazy"
+            src="street.jpg"
+            data-src="street.jpg"
+            alt="Street photography"
+            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Street</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </main>
+    <!-- ===== About Section ===== -->
+    <section id="about" class="py-20 border-t border-gray-700">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
 
-    <!-- ===== Footer ===== -->
-    <footer class="text-center py-10 mt-20 border-t border-gray-700 text-gray-500">
-        <p>&copy; 2025 Rajesh Tiwari. All rights reserved.</p>
-    </footer>
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <img
+          src="profile.png"
+          alt="A photo of me"
+          class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700"
+          onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile+Pic'; this.onerror=null;"
+        />
 
-    <!-- 
-      ===== Lightbox Modal =====
-      This is hidden by default and shown with JavaScript 
-    -->
-    <div id="lightbox" class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300">
-        <!-- The Full-size Image -->
-        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-full rounded-lg shadow-2xl">
-        
-        <!-- Close Button -->
-        <span id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
-    </div>
+        <div class="flex-1 text-lg text-gray-300">
+          <p class="mb-4">
+            Hello! I'm Rajesh, a photographer by passion. My journey with photography began years ago, and I've been captivated by the art of capturing moments ever since.
+          </p>
+          <p class="mb-4">
+            I'm still learning and exploring new techniques every day. My goal is to tell a story with every shot, focusing on light, emotion, and the tiny details that make each moment unique.
+          </CMB>
+          <p>
+            Whether it's landscapes, portraits, or street photography, I'm always searching for a new perspective.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== Contact Section ===== -->
+    <section id="contact" class="py-20 border-t border-gray-700">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Get In Touch</h2>
+      <p class="text-lg text-gray-400 mb-8 max-w-3xl">
+        I'm always excited to collaborate on new projects or discuss potential commissions. The best way to reach me is by email.
+      </p>
 
-    <!-- ===== JavaScript ===== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+      <div class="text-lg">
+        <h3 class="text-2xl font-semibold text-white mb-2">Email</h3>
+        <a href="mailto:rajyesnt@gmail.com" class="text-sky-400 hover:text-sky-300 text-xl transition-colors hover:underline">
+          rajyesnt@gmail.com
+        </a>
 
-            // --- Lightbox Logic ---
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const closeButton = document.getElementById('lightbox-close');
-            const galleryImages = document.querySelectorAll('.gallery-item img');
+        <h3 class="text-2xl font-semibold text-white mt-8 mb-2">Social Media</h3>
+        <p class="text-gray-400">You can also find me on the links in the header.</p>
+      </div>
+    </section>
+  </main>
 
-            // Function to open the lightbox
-            const openLightbox = (imgSrc) => {
-                lightboxImg.src = imgSrc;
-                lightbox.classList.remove('invisible', 'opacity-0');
-                lightbox.classList.add('visible', 'opacity-100');
-            };
+  <!-- ===== Footer ===== -->
+  <footer class="text-center py-10 mt-20 border-t border-gray-700 text-gray-500">
+    <p>&copy; 2025 Rajesh Tiwari. All rights reserved.</p>
+  </footer>
 
-            // Function to close the lightbox
-            const closeLightbox = () => {
-                lightbox.classList.add('invisible', 'opacity-0');
-                lightbox.classList.remove('visible', 'opacity-100');
-                // Set src to empty to stop loading (good for performance)
-                lightboxImg.src = '';
-            };
+  <!-- ===== Lightbox ===== -->
+  <div id="lightbox" class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300">
+    <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-full rounded-lg shadow-2xl" />
+    <span id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
+  </div>
 
-            // Add click listener to all gallery images
-            galleryImages.forEach(img => {
-                img.addEventListener('click', () => {
-                    const fullImgSrc = img.getAttribute('data-src');
-                    openLightbox(fullImgSrc);
-                });
-            });
+  <!-- ===== JavaScript ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeButton = document.getElementById('lightbox-close');
+      const galleryImages = document.querySelectorAll('.gallery-item img');
 
-            // Close lightbox when 'X' is clicked
-            closeButton.addEventListener('click', closeLightbox);
+      const openLightbox = (imgSrc) => {
+        if (!imgSrc) return;
+        lightboxImg.src = imgSrc;
+        lightbox.classList.remove('invisible', 'opacity-0');
+        lightbox.classList.add('visible', 'opacity-100');
+      };
 
-            // Close lightbox when the dark background is clicked
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
+      const closeLightbox = () => {
+        lightbox.classList.add('invisible',_blank', 'opacity-0');
+        lightbox.classList.remove('visible', 'opacity-100');
+        lightboxImg.src = '';
+      };
 
-            // Close lightbox with the 'Escape' key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !lightbox.classList.contains('invisible')) {
-                    closeLightbox();
-                }
-            });
-
-            
-            // --- Active Nav Link on Scroll Logic ---
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            const observerOptions = {
-                root: null, // observes intersections relative to the viewport
-                rootMargin: '0px',
-                threshold: 0.4  // 40% of the section must be visible
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                        
-                        // Remove active class from all links
-                        navLinks.forEach(link => link.classList.remove('active'));
-                        
-                        // Add active class to the intersecting link
-                        if (activeLink) {
-                            activeLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            // Observe each section
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-            
+      galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+          const fullImgSrc = img.getAttribute('data-src');
+          openLightbox(fullImgSrc);
         });
-    </script>
+      });
 
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isInterstargeting) {
+            const id = entry.target.getAttribute('id');
+            const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (activeLink) activeLink.classList.add('active');
+          }
+        });
+      }, { threshold: 0.4 });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 </html>
 
