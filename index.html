@@ -44,7 +44,7 @@
       animation: blink-caret 0.75s step-end infinite;
     }
 
-    /* --- New: Profile Picture Rotating Glow Animation --- */
+    /* Profile Picture Rotating Glow Animation */
     @keyframes rotate-glow {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -52,17 +52,15 @@
 
     .profile-img-container {
       position: relative;
-      /* Adjust these dimensions to match your img's width/height + border */
       width: 260px; /* 256px + 4px border * 2 */
       height: 260px; /* 256px + 4px border * 2 */
       border-radius: 8px; /* Match img border-radius */
-      display: flex; /* To center the image inside */
+      display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden; /* Crucial to keep the glow inside bounds */
+      overflow: hidden; 
     }
     
-    /* For medium screens and up */
     @media (min-width: 768px) {
         .profile-img-container {
             width: 332px; /* 320px + 4px border * 2 */
@@ -78,28 +76,23 @@
       left: -100%;
       right: -100%;
       bottom: -100%;
-      /* 2. Changed to a "loading" style gradient */
       background: conic-gradient(
         from 0deg,
         transparent 0deg 270deg,
         #4f46e5 270deg,
         #ef4444 360deg
       );
-      /* 1. Sped up animation to 5s */
-      animation: rotate-glow 5s linear infinite; /* 5 seconds for one full rotation */
-      z-index: 0; /* Behind the image */
+      animation: rotate-glow 5s linear infinite; 
+      z-index: 0;
     }
 
-    /* The actual image */
     .profile-img-container img {
-      position: relative; /* Bring image above the pseudo-element glow */
+      position: relative;
       z-index: 1;
-      /* Override any potential border-radius issues from the container */
-      border-radius: 6px; /* Slightly less than container to show glow */
-      border: 4px solid transparent; /* Keep the space for the original border */
-      outline: 2px solid #27272a; /* Dark background to define inner edge */
+      border-radius: 6px; 
+      border: 4px solid transparent; 
+      outline: 2px solid #27272a; 
     }
-
 
   </style>
 </head>
@@ -142,10 +135,13 @@
         Gallery
       </h2>
       <p class="text-lg text-gray-400 mb-10 max-w-3xl">
-        A collection of my favorite work. Click any image to see it larger.
+        A collection of my favorite work. Click any category to see more.
+      </image>
       </p>
 
+      <!-- NEW: Gallery Category Grid with updated data structure -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
         <!-- Category 1: Portraits -->
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
@@ -169,15 +165,22 @@
             <h3 class="text-white text-lg font-semibold">Portraits</h3>
           </div>
         </div>
-        <!-- Image 2: Nature --><div
-          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+
+        <!-- Category 2: Nature -->
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Nature"
+          data-images='[
+            {"src": "sunset.jpg", "title": "Golden Sunset", "time": "2025-10-18"},
+            {"src": "nature-2.jpg", "title": "Misty Forest", "time": "2025-07-22"},
+            {"src": "nature-3.jpg", "title": "Mountain Peak", "time": "2025-06-10"}
+          ]'
         >
           <img
             loading="lazy"
             src="sunset.jpg"
-            data-src="sunset.jpg"
-            alt="A beautiful sunset landscape"
-            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            alt="Nature"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
@@ -185,15 +188,21 @@
           </div>
         </div>
 
-        <!-- Image 3: Wildlife --><div
-          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        <!-- Category 3: Wildlife -->
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Wildlife"
+          data-images='[
+            {"src": "Horses.jpg", "title": "Running Horses", "time": "2025-09-05"},
+            {"src": "wildlife-2.jpg", "title": "Bird in Flight", "time": "2025-08-11"},
+            {"src": "wildlife-3.jpg", "title": "Resting Deer", "time": "2025-07-30"}
+          ]'
         >
           <img
             loading="lazy"
             src="Horses.jpg"
-            data-src="Horses.jpg"
-            alt="Wildlife horses photo"
-            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            alt="Wildlife"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
@@ -201,15 +210,21 @@
           </div>
         </div>
 
-        <!-- Image 4: Travel --><div
-          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        <!-- Category 4: Travel -->
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Travel"
+          data-images='[
+            {"src": "travel.jpg", "title": "Cityscape", "time": "2025-05-20"},
+            {"src": "travel-2.jpg", "title": "Ancient Ruins", "time": "2025-04-12"},
+            {"src": "travel-3.jpg", "title": "Beach Getaway", "time": "2025-03-05"}
+          ]'
         >
           <img
             loading="lazy"
             src="travel.jpg"
-            data-src="travel.jpg"
-            alt="Travel photography"
-            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+            alt="Travel"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
             onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
@@ -217,16 +232,22 @@
           </div>
         </div>
 
-        <!-- Image 5: Street --><div
-          class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative"
+        <!-- Category 5: Street -->
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Street"
+          data-images='[
+            {"src": "street.jpg", "title": "Neon Nights", "time": "2025-10-02"},
+            {"src": "street-2.jpg", "title": "Morning Commute", "time": "2025-09-18"},
+            {"src": "street-3.jpg", "title": "Marketplace", "time": "2025-08-25"}
+          ]'
         >
           <img
             loading="lazy"
             src="street.jpg"
-            data-src="street.jpg"
-            alt="Street photography"
-            class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
-            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+            alt="Street"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='httpsG://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
             <h3 class="text-white text-lg font-semibold">Street</h3>
@@ -239,7 +260,7 @@
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
 
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <!-- New: Profile Image Container for Rotating Glow --><div 
+        <!-- Profile Image Container for Rotating Glow --><div 
             class="profile-img-container rounded-lg shadow-xl border-4 border-gray-700">
           <img
             src="profile.png"
@@ -255,7 +276,7 @@
           </p>
           <p class="mb-4">
             I'm still learning and exploring new techniques every day. My goal is to tell a story with every shot, focusing on light, emotion, and the tiny details that make each moment unique.
-          </p> <!-- FIXED: Was </D> -->
+          </p> 
           <p>
             Whether it's landscapes, portraits, or street photography, I'm always searching for a new perspective.
           </p>
@@ -285,42 +306,139 @@
     <p>&copy; 2025 Rajesh Tiwari. All rights reserved.</p>
   </footer>
 
-  <!-- ===== Lightbox ===== --><div id="lightbox" class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300">
-    <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-full rounded-lg shadow-2xl" />
-    <span id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
+  <!-- ===== NEW Scrollable Lightbox ===== -->
+  <div id="lightbox" class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300">
+    
+    <!-- Lightbox Content Box -->
+    <div class="relative bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-lg shadow-2xl p-4 flex flex-col">
+        <!-- Header: Title and Close Button -->
+        <div class="flex justify-between items-center pb-3 border-b border-gray-700 flex-shrink-0">
+            <h3 id="lightbox-title" class="text-2xl font-bold text-white"></h3>
+            <span id="lightbox-close" class="text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
+        </div>
+        
+        <!-- NEW: Scrollable Image List Container -->
+        <div id="lightbox-content" class="flex-1 overflow-y-auto p-4 space-y-8">
+          <!-- Images will be dynamically inserted here by JavaScript -->
+        </div>
+    </div>
+
   </div>
 
   <!-- ===== JavaScript ===== --><script>
     document.addEventListener('DOMContentLoaded', () => {
-      // --- Lightbox Logic ---
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      const closeButton = document.getElementById('lightbox-close');
-      const galleryImages = document.querySelectorAll('.gallery-item img');
 
-      const openLightbox = (imgSrc) => {
-        if (!imgSrc) return;
-        lightboxImg.src = imgSrc;
+      // --- NEW Scrollable Lightbox Logic ---
+      const lightbox = document.getElementById('lightbox');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxContent = document.getElementById('lightbox-content');
+      const closeButton = document.getElementById('lightbox-close');
+      const galleryCategories = document.querySelectorAll('.gallery-category-item');
+
+      // Helper function to format date strings (e.g., "2025-10-20" -> "October 20, 2025")
+      function formatDate(dateString) {
+        if (!dateString) return "";
+        try {
+          const date = new Date(dateString + 'T00:00:00'); // Add time to avoid timezone issues
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+        } catch (e) {
+          console.error("Could not format date:", dateString, e);
+          return dateString; // Return original string if formatting fails
+        }
+      }
+
+      // Function to open the lightbox and build the content
+      function openLightbox(categoryItem) {
+        const title = categoryItem.getAttribute('data-category-title');
+        const imagesJson = categoryItem.getAttribute('data-images');
+        
+        if (!imagesJson) {
+            console.error("No data-images attribute found on category item");
+            return;
+        }
+
+        let images = [];
+        try {
+            images = JSON.parse(imagesJson);
+        } catch (e) {
+            console.error("Failed to parse data-images JSON:", e);
+            return;
+        }
+
+        if (images.length === 0) {
+            console.error("No images in category");
+            return;
+        }
+
+        // Set the category title
+        lightboxTitle.textContent = title;
+
+        // Clear previous content
+        lightboxContent.innerHTML = '';
+
+        // Build new content
+        let contentHtml = '';
+        images.forEach(image => {
+          const formattedDate = formatDate(image.time);
+          
+          contentHtml += `
+            <div class="mb-4">
+              <img 
+                src="${image.src}" 
+                alt="${image.title || 'Gallery image'}" 
+                class="w-full h-auto object-contain rounded-lg shadow-md"
+                onerror="this.src='https://placehold.co/800x600/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+              />
+              <div class="mt-3 px-1">
+                <h4 class="text-xl font-semibold text-white">${image.title || 'Untitled'}</h4>
+                <p class="text-sm text-gray-400">Taken on: ${formattedDate || 'Unknown Date'}</p>
+              </div>
+            </div>
+          `;
+        });
+        
+        lightboxContent.innerHTML = contentHtml;
+
+        // Show the lightbox
         lightbox.classList.remove('invisible', 'opacity-0');
         lightbox.classList.add('visible', 'opacity-100');
-      };
+        
+        // Scroll to the top of the list
+        lightboxContent.scrollTop = 0;
+      }
 
-      const closeLightbox = () => {
+      // Function to close the lightbox
+      function closeLightbox() {
         lightbox.classList.add('invisible', 'opacity-0');
         lightbox.classList.remove('visible', 'opacity-100');
-        lightboxImg.src = '';
-      };
+        
+        // Reset state
+        lightboxContent.innerHTML = '';
+        lightboxTitle.textContent = '';
+      }
 
-      galleryImages.forEach(img => {
-        img.addEventListener('click', () => {
-          const fullImgSrc = img.getAttribute('data-src');
-          openLightbox(fullImgSrc);
+      // Add click listeners to all gallery category items
+      galleryCategories.forEach(item => {
+        item.addEventListener('click', () => {
+          openLightbox(item);
         });
       });
 
+      // Close lightbox listeners
       closeButton.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lightbox.classList.contains('invisible')) closeLightbox(); });
+      lightbox.addEventListener('click', (e) => {
+        // Close if clicking on the dark background, not the content box
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('visible') && e.key === 'Escape') {
+            closeLightbox();
+        }
+      });
 
       // --- Active Nav Link on Scroll Logic ---
       const sections = document.querySelectorAll('section');
@@ -358,7 +476,7 @@
         if (isTyping) {
           if (i < nameToType.length) {
             nameElement.textContent += nameToType.charAt(i);
-            i++; // FIXED: Was D i++;
+            i++; 
             setTimeout(typeLoop, typingSpeed);
           } else {
             isTyping = false;
