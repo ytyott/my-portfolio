@@ -82,64 +82,39 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Image 1: Portraits -->
-<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
+<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
     <img src="images/A-man-in-Desert.jpg" 
          data-src="images/A-man-in-Desert.jpg" 
          alt="A man walking in the desert"
          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-    
-    <!-- This is the new heading -->
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Portraits</h3>
-    </div>
 </div>
                 <!-- Image 2: Nature -->
-<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
+<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
     <img src="images/sunset.jpg" 
          data-src="images/sunset.jpg" 
          alt="A beautiful sunset landscape"
          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-    
-    <!-- This is the new heading -->
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Nature</h3>
-    </div>
 </div>
                 <!-- Image 3: Wildlife -->
-<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
+<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1"> <!-- I fixed overflow.hidden here -->
     <img src="images/Horeses.jpg" 
          data-src="images/Horeses.jpg" 
          alt="A photo of horses"
          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-    
-    <!-- This is the new heading -->
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Wildlife</h3>
-    </div>
 </div>
                 <!-- Image 5: Street -->
-<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
+<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
     <img src="images/Street.jpg" 
          data-src="images/Street.jpg" 
          alt="A street photography shot"
          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-    
-    <!-- This is the new heading -->
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Street</h3>
-    </div>
 </div>
                 <!-- Image 6: Travel -->
-<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 relative">
+<div class="gallery-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
     <img src="images/Travel.jpg" 
          data-src="images/Travel.jpg" 
          alt="A travel photograph"
          class="w-full h-72 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105">
-    
-    <!-- This is the new heading -->
-    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Travel</h3>
-    </div>
 </div>
                  <!-- Add more gallery items here -->
             </div>
@@ -261,7 +236,7 @@
                 threshold: 0.4  // 40% of the section must be visible
             };
 
-            const observer = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries). => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
@@ -288,6 +263,4 @@
 
 </body>
 </html>
-
-
 
