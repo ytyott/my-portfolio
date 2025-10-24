@@ -36,32 +36,68 @@
     /* Typewriter Cursor Animation */
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: #9ca3af; /* Back to gray-400 */ }
+      50% { border-color: #9ca3af; } /* gray-400 */
     }
 
     .typewriter-cursor {
-      border-right: 2px solid #9ca3af; /* Back to gray-400 */
+      border-right: 2px solid #9ca3af; /* gray-400 */
       animation: blink-caret 0.75s step-end infinite;
     }
 
-    /* --- 1. Image Zoom Effect --- */
-    /* The 'group-hover:scale-105' class already handles this for gallery images */
-
-    /* --- 2. Profile Picture Pulse Animation --- */
-    @keyframes pulse-border {
-      0% {
-        box-shadow: 0 0 0 0 rgba(107, 114, 128, 0.4); /* gray-500 with opacity */
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(107, 114, 128, 0); /* fades out and expands */
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(107, 114, 128, 0);
-      }
+    /* --- New: Profile Picture Rotating Glow Animation --- */
+    @keyframes rotate-glow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
-    .animate-profile-pulse {
-      animation: pulse-border 2s infinite;
+    .profile-img-container {
+      position: relative;
+      /* Adjust these dimensions to match your img's width/height + border */
+      width: 260px; /* 256px + 4px border * 2 */
+      height: 260px; /* 256px + 4px border * 2 */
+      border-radius: 8px; /* Match img border-radius */
+      display: flex; /* To center the image inside */
+      align-items: center;
+      justify-content: center;
+      overflow: hidden; /* Crucial to keep the glow inside bounds */
+    }
+    
+    /* For medium screens and up */
+    @media (min-width: 768px) {
+        .profile-img-container {
+            width: 332px; /* 320px + 4px border * 2 */
+            height: 332px; /* 320px + 4px border * 2 */
+        }
+    }
+
+
+    .profile-img-container::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      right: -100%;
+      bottom: -100%;
+      background: conic-gradient(
+        from 0deg,
+        #4f46e5, /* Indigo (blueish) */
+        #ef4444, /* Red */
+        #4f46e5, /* Indigo (blueish) */
+        #ef4444, /* Red */
+        #4f46e5  /* Indigo (blueish) */
+      );
+      animation: rotate-glow 8s linear infinite; /* 8 seconds for one full rotation */
+      z-index: 0; /* Behind the image */
+    }
+
+    /* The actual image */
+    .profile-img-container img {
+      position: relative; /* Bring image above the pseudo-element glow */
+      z-index: 1;
+      /* Override any potential border-radius issues from the container */
+      border-radius: 6px; /* Slightly less than container to show glow */
+      border: 4px solid transparent; /* Keep the space for the original border */
+      outline: 2px solid #27272a; /* Dark background to define inner edge */
     }
 
 
@@ -196,12 +232,15 @@
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
 
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <!-- 2. Added animate-profile-pulse class to the profile image --><img
-          src="profile.png"
-          alt="A photo of me"
-          class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover shadow-xl border-4 border-gray-700 animate-profile-pulse"
-          onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile+Pic'; this.onerror=null;"
-        />
+        <!-- New: Profile Image Container for Rotating Glow --><div 
+            class="profile-img-container rounded-lg shadow-xl border-4 border-gray-700">
+          <img
+            src="profile.png"
+            alt="A photo of me"
+            class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover"
+            onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile+Pic'; this.onerror=null;"
+          />
+        </div>
 
         <div class="flex-1 text-lg text-gray-300">
           <p class="mb-4">
