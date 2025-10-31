@@ -22,8 +22,9 @@
   </script>
 
   <style>
+    /* Active state for scroll-spy */
     .nav-link.active {
-      color: #38bdf8;
+      color: #38bdf8; /* sky-400 */
       font-weight: 600;
     }
     html { scroll-behavior: smooth; }
@@ -52,7 +53,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden; 
+      overflow: hidden;  
     }
     @media (min-width: 768px) {
         .profile-img-container {
@@ -68,41 +69,42 @@
       left: -100%;
       right: -100%;
       bottom: -100%;
+      /* --- SOFTER, COHESIVE GRADIENT --- */
       background: conic-gradient(
         from 0deg,
         transparent 0deg 270deg,
-        #4f46e5 270deg,
-        #ef4444 360deg
+        #38bdf8 300deg, /* sky-400 */
+        #0ea5e9 360deg  /* sky-500 */
       );
-      animation: rotate-glow 5s linear infinite; 
+      animation: rotate-glow 5s linear infinite;  
       z-index: 0;
     }
 
     .profile-img-container img {
       position: relative;
       z-index: 1;
-      border-radius: 6px; 
-      border: 4px solid transparent; 
-      outline: 2px solid #27272a; 
+      border-radius: 6px;  
+      border: 4px solid transparent;  
+      outline: 2px solid #27272a;  
     }
   </style>
 </head>
 
 <body class="bg-gray-900 text-gray-300 font-sans antialiased">
-  <!-- HEADER -->
   <header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold text-gray-400 hover:text-sky-400 transition-colors">
+      <a href="#home" class="text-2xl font-bold text-gray-400 hover:text-sky-400 transition-colors">
         <span id="rajesh-name"></span><span id="cursor" class="typewriter-cursor"></span>
       </a>
 
       <ul class="hidden md:flex items-center space-x-6">
-        <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition-colors active">Gallery</a></li>
+        <li><a href="#home" class="nav-link text-gray-400 hover:text-white transition-colors active">Home</a></li>
+        <li><a href="#gallery" class="nav-link text-gray-400 hover:text-white transition-colors">Gallery</a></li>
         <li><a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a></li>
         <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a></li>
       </ul>
 
-      <div class="flex items-center space-x-5 text-gray-400">
+      <div class="hidden md:flex items-center space-x-5 text-gray-400">
         <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram"
           class="hover:text-pink-500 transition-all hover:scale-110">
           <i class="fab fa-instagram text-xl"></i>
@@ -116,19 +118,54 @@
           <i class="fab fa-twitter text-xl"></i>
         </a>
       </div>
+
+      <button id="menu-btn" class="md:hidden text-gray-400 hover:text-white text-2xl z-[60]">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
+
+    <div id="mobile-menu" 
+      class="fixed inset-0 z-[55] bg-gray-950/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8
+             transform -translate-y-full transition-transform duration-300 ease-in-out">
+      <a href="#home" class="nav-link-mobile text-3xl font-bold text-gray-300 hover:text-sky-400">Home</a>
+      <a href="#gallery" class="nav-link-mobile text-3xl font-bold text-gray-300 hover:text-sky-400">Gallery</a>
+      <a href="#about" class="nav-link-mobile text-3xl font-bold text-gray-300 hover:text-sky-400">About</a>
+      <a href="#contact" class="nav-link-mobile text-3xl font-bold text-gray-300 hover:text-sky-400">Contact</a>
+      
+      <div class="flex items-center space-x-8 text-gray-400 pt-8">
+        <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition-all hover:scale-110">
+          <i class="fab fa-instagram text-3xl"></i>
+        </a>
+        <a href="https://facebook.com/rajyesnt" target="_blank" aria-label="Facebook" class="hover:text-blue-600 transition-all hover:scale-110">
+          <i class="fab fa-facebook text-3xl"></i>
+        </a>
+        <a href="https://twitter.com/raj__yes" target="_blank" aria-label="Twitter" class="hover:text-sky-500 transition-all hover:scale-110">
+          <i class="fab fa-twitter text-3xl"></i>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main class="container mx-auto px-6">
-    <!-- GALLERY -->
-    <section id="home" class="py-20 pt-24 md:pt-32">
+    <section id="home" class="py-24 md:py-40 flex flex-col items-center text-center min-h-[70vh] justify-center">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+        Capturing Moments, Creating Art
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl">
+        Hello! I'm Rajesh, a photographer by passion. Welcome to my personal space where I share my perspective of the world.
+      </p>
+      <a href="#gallery" class="bg-sky-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-sky-600 transition-colors duration-300 transform hover:scale-105">
+        View My Work
+      </a>
+    </section>
+
+    <section id="gallery" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h2>
       <p class="text-lg text-gray-400 mb-10 max-w-3xl">
         A collection of my favorite work. Click any category to see more.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- SAMPLE CATEGORY -->
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
           data-category-title="Portraits"
@@ -140,16 +177,48 @@
         >
           <img loading="lazy" src="a-man-in-Desert.jpg" alt="Portraits"
             class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Missing';this.onerror=null;">
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Portraits';this.onerror=null;">
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
             <h3 class="text-white text-lg font-semibold">Portraits</h3>
           </div>
         </div>
-        <!-- You can repeat for other categories -->
+        
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Landscapes"
+          data-images='[
+            {"src": "https://placehold.co/1200x800/444/aaa?text=Landscape+1", "title": "Misty Mountains", "time": "2025-08-05"},
+            {"src": "https://placehold.co/1200x800/555/bbb?text=Landscape+2", "title": "Coastal Sunset", "time": "2025-07-22"}
+          ]'
+        >
+          <img loading="lazy" src="https://placehold.co/600x400/444/aaa?text=Landscapes" alt="Landscapes"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Landscapes';this.onerror=null;">
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Landscapes</h3>
+          </div>
+        </div>
+
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Street Photography"
+          data-images='[
+            {"src": "https://placehold.co/1200x800/333/999?text=Street+1", "title": "City Rush", "time": "2025-10-01"},
+            {"src": "https://placehold.co/1200x800/404040/888?text=Street+2", "title": "Alley Cat", "time": "2025-06-18"},
+            {"src": "https://placehold.co/1200x800/222/777?text=Street+3", "title": "Rainy Reflections", "time": "2025-05-30"}
+          ]'
+        >
+          <img loading="lazy" src="https://placehold.co/600x400/333/999?text=Street" alt="Street"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Street';this.onerror=null;">
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Street Photography</h3>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -158,51 +227,123 @@
             onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile';this.onerror=null;">
         </div>
         <div class="flex-1 text-lg text-gray-300">
-          <p class="mb-4">Hello! I'm Rajesh, a photographer by passion...</p>
-          <p class="mb-4">I’m still learning and exploring new techniques...</p>
-          <p>Whether it's landscapes, portraits, or street photography, I'm always searching for a new perspective.</p>
+          <p class="mb-4">
+            I’m still learning and exploring new techniques, and this website is my digital sketchbook.
+          </p>
+          <p class="mb-6">
+            Whether it's landscapes, portraits, or candid street photography, I'm always searching for a new perspective and the story hidden within the frame.
+          </p>
+          <blockquote class="border-l-4 border-sky-500 pl-4 py-2 text-gray-400 italic">
+            "Photography is the art of making memories tangible."
+          </blockquote>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Get In Touch</h2>
-      <p class="text-lg text-gray-400 mb-8 max-w-3xl">I'm always excited to collaborate on new projects or discuss potential commissions.</p>
+      <p class="text-lg text-gray-400 mb-10 max-w-3xl">
+        I'm always excited to collaborate on new projects or discuss potential commissions. Feel free to reach out!
+      </p>
       <div class="text-lg">
-        <h3 class="text-2xl font-semibold text-white mb-2">Email</h3>
-        <a href="mailto:rajyesnt@gmail.com" class="text-sky-400 hover:text-sky-300 text-xl transition-colors hover:underline">
+        <a href="mailto:rajyesnt@gmail.com" 
+           class="inline-flex items-center gap-3 bg-gray-800 p-4 rounded-lg
+                  text-sky-400 hover:text-sky-300 hover:bg-gray-700 text-xl transition-all group">
+          <i class="fas fa-envelope text-2xl text-gray-500 group-hover:text-sky-400 transition-colors"></i>
           rajyesnt@gmail.com
         </a>
-        <h3 class="text-2xl font-semibold text-white mt-8 mb-2">Social Media</h3>
-        <p class="text-gray-400">You can also find me on the links in the header.</p>
+      </div>
+      <h3 class="text-2xl font-semibold text-white mt-12 mb-4">Find Me Online</h3>
+      <p class="text-gray-400 mb-6">You can also find me on the following platforms.</p>
+      <div class="flex items-center space-x-6 text-gray-400">
+        <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition-all hover:scale-110">
+          <i class="fab fa-instagram text-3xl"></i>
+        </a>
+        <a href="https://facebook.com/rajyesnt" target="_blank" aria-label="Facebook" class="hover:text-blue-600 transition-all hover:scale-110">
+          <i class="fab fa-facebook text-3xl"></i>
+        </a>
+        <a href="https://twitter.com/raj__yes" target="_blank" aria-label="Twitter" class="hover:text-sky-500 transition-all hover:scale-110">
+          <i class="fab fa-twitter text-3xl"></i>
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="text-center py-10 mt-20 border-t border-gray-700 text-gray-500">
+    <div class="flex justify-center items-center space-x-6 mb-6 text-gray-400">
+      <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition-all">
+        <i class="fab fa-instagram text-2xl"></i>
+      </a>
+      <a href="https://facebook.com/rajyesnt" target="_blank" aria-label="Facebook" class="hover:text-blue-600 transition-all">
+        <i class="fab fa-facebook text-2xl"></i>
+      </a>
+      <a href="https://twitter.com/raj__yes" target="_blank" aria-label="Twitter" class="hover:text-sky-500 transition-all">
+        <i class="fab fa-twitter text-2xl"></i>
+      </a>
+    </div>
     <p>&copy; 2025 Rajesh Tiwari. All rights reserved.</p>
   </footer>
 
-  <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 z-[999] bg-black/95 flex items-center justify-center p-0 invisible opacity-0 transition-opacity duration-300">
-    <div class="relative w-full h-full flex flex-col bg-gray-900 rounded-none p-0">
+    <div class="relative w-full h-full flex flex-col bg-transparent">
+      
       <div class="absolute top-0 left-0 w-full flex justify-between items-center p-6 bg-black/60 backdrop-blur-md z-10">
-        <h3 id="lightbox-title" class="text-2xl font-bold text-white"></h3>
+        <h3 id="lightbox-title" class="text-xl md:text-2xl font-bold text-white"></h3>
         <span id="lightbox-close" class="text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
       </div>
-      <div id="lightbox-content" class="w-full h-full overflow-y-auto flex flex-col items-center justify-center p-6 mt-16 space-y-8">
-      </div>
+
+      <div id="lightbox-content" class="w-full h-full flex items-center justify-center p-6 pt-24 md:p-12">
+        </div>
+
+      <button id="lightbox-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-white/50 hover:text-white
+                                       text-5xl p-4 md:p-6 transition-colors">
+        &#10094;
+      </button>
+      <button id="lightbox-next" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-white/50 hover:text-white
+                                       text-5xl p-4 md:p-6 transition-colors">
+        &#10095;
+      </button>
+
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // --- MOBILE MENU ---
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.nav-link-mobile');
+      const menuIcon = menuBtn.querySelector('i');
+
+      function toggleMenu() {
+        mobileMenu.classList.toggle('-translate-y-full');
+        if (mobileMenu.classList.contains('-translate-y-full')) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          document.body.style.overflow = ''; // Re-enable scroll
+        } else {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+          document.body.style.overflow = 'hidden'; // Disable scroll
+        }
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+      // Close menu when a link is clicked
+      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+      // --- LIGHTBOX ---
       const lightbox = document.getElementById('lightbox');
       const lightboxTitle = document.getElementById('lightbox-title');
       const lightboxContent = document.getElementById('lightbox-content');
       const closeButton = document.getElementById('lightbox-close');
+      const prevButton = document.getElementById('lightbox-prev');
+      const nextButton = document.getElementById('lightbox-next');
       const galleryCategories = document.querySelectorAll('.gallery-category-item');
+
+      let currentImages = [];
+      let currentIndex = 0;
+      let currentCategoryTitle = '';
 
       function formatDate(dateString) {
         if (!dateString) return "";
@@ -210,43 +351,68 @@
         return date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
       }
 
+      function showImage(index) {
+        if (index < 0 || index >= currentImages.length) return;
+        
+        currentIndex = index;
+        const image = currentImages[index];
+        const formattedDate = formatDate(image.time);
+
+        lightboxContent.innerHTML = `
+          <div class="flex flex-col items-center justify-center w-full h-full">
+            <img src="${image.src}" alt="${image.title || 'Gallery image'}"
+              class="max-w-full max-h-[80vh] object-contain"
+              onerror="this.src='https://placehold.co/1200x800/27272a/71717a?text=Image+Missing';this.onerror=null;">
+            <div class="mt-4 text-center">
+              <h4 class="text-xl font-semibold text-white">${image.title || 'Untitled'}</h4>
+              <p class="text-sm text-gray-400">${formattedDate || 'Unknown Date'}</p>
+            </div>
+          </div>`;
+        
+        lightboxTitle.textContent = `${currentCategoryTitle} (${index + 1} / ${currentImages.length})`;
+        
+        // Update button visibility
+        prevButton.style.display = (index === 0) ? 'none' : 'block';
+        nextButton.style.display = (index === currentImages.length - 1) ? 'none' : 'block';
+      }
+
       function openLightbox(categoryItem) {
-        const title = categoryItem.getAttribute('data-category-title');
+        currentCategoryTitle = categoryItem.getAttribute('data-category-title');
         const imagesJson = categoryItem.getAttribute('data-images');
-        const images = JSON.parse(imagesJson);
-        lightboxTitle.textContent = title;
-        lightboxContent.innerHTML = '';
-        images.forEach(image => {
-          const formattedDate = formatDate(image.time);
-          lightboxContent.innerHTML += `
-            <div class="flex flex-col items-center justify-center">
-              <img src="${image.src}" alt="${image.title || 'Gallery image'}"
-                class="w-full h-[90vh] object-contain"
-                onerror="this.src='https://placehold.co/1200x800/27272a/71717a?text=Image+Missing';this.onerror=null;">
-              <div class="mt-3 text-center">
-                <h4 class="text-xl font-semibold text-white">${image.title || 'Untitled'}</h4>
-                <p class="text-sm text-gray-400">${formattedDate || 'Unknown Date'}</p>
-              </div>
-            </div>`;
-        });
+        currentImages = JSON.parse(imagesJson);
+        
+        showImage(0); // Show the first image
+        
         lightbox.classList.remove('invisible', 'opacity-0');
         lightbox.classList.add('visible', 'opacity-100');
-        lightboxContent.scrollTop = 0;
+        document.body.style.overflow = 'hidden'; // Disable body scroll
       }
 
       function closeLightbox() {
         lightbox.classList.add('invisible', 'opacity-0');
         lightbox.classList.remove('visible', 'opacity-100');
         lightboxContent.innerHTML = '';
-        lightboxTitle.textContent = '';
+        currentImages = [];
+        currentIndex = 0;
+        document.body.style.overflow = ''; // Re-enable body scroll
       }
 
+      // Lightbox Event Listeners
       galleryCategories.forEach(item => item.addEventListener('click', () => openLightbox(item)));
       closeButton.addEventListener('click', closeLightbox);
+      prevButton.addEventListener('click', () => showImage(currentIndex - 1));
+      nextButton.addEventListener('click', () => showImage(currentIndex + 1));
       lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+      
+      document.addEventListener('keydown', e => {
+        if (lightbox.classList.contains('visible')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+          if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+        }
+      });
 
-      // Typewriter animation
+      // --- TYPEWRITER ANIMATION ---
       const nameElement = document.getElementById('rajesh-name');
       const cursorElement = document.getElementById('cursor');
       const nameToType = "Rajəsh";
@@ -276,6 +442,30 @@
         }
       }
       typeLoop();
+
+      // --- NAVIGATION SCROLL-SPY ---
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('header .nav-link');
+
+      window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100; // 100px offset for header
+          const sectionHeight = section.offsetHeight;
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      });
     });
   </script>
 </body>
