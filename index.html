@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rajesh - Photography Portfolio</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
+
   <script>
     tailwind.config = {
       theme: {
@@ -47,9 +50,9 @@
 
     .profile-img-container {
       position: relative;
-      width: 264px;
-      height: 264px;
-      border-radius: 8px;
+      width: 260px; /* 256px + 4px border * 2 */
+      height: 260px; /* 256px + 4px border * 2 */
+      border-radius: 8px; /* Match img border-radius */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -57,11 +60,12 @@
     }
     @media (min-width: 768px) {
         .profile-img-container {
-            width: 328px;
-            height: 328px;
+            width: 332px; /* 320px + 4px border * 2 */
+            height: 332px; /* 320px + 4px border * 2 */
         }
     }
 
+    /* --- NEW: Softer, Cohesive Gradient --- */
     .profile-img-container::before {
       content: '';
       position: absolute;
@@ -69,7 +73,6 @@
       left: -100%;
       right: -100%;
       bottom: -100%;
-      /* --- SOFTER, COHESIVE GRADIENT --- */
       background: conic-gradient(
         from 0deg,
         transparent 0deg 270deg,
@@ -91,6 +94,7 @@
 </head>
 
 <body class="bg-gray-900 text-gray-300 font-sans antialiased">
+  
   <header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#home" class="text-2xl font-bold text-gray-400 hover:text-sky-400 transition-colors">
@@ -147,6 +151,7 @@
   </header>
 
   <main class="container mx-auto px-6">
+    
     <section id="home" class="py-24 md:py-40 flex flex-col items-center text-center min-h-[70vh] justify-center">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
         Capturing Moments, Creating Art
@@ -160,24 +165,33 @@
     </section>
 
     <section id="gallery" class="py-20 border-t border-gray-700">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Gallery</h2>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Gallery
+      </h2>
       <p class="text-lg text-gray-400 mb-10 max-w-3xl">
         A collection of my favorite work. Click any category to see more.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
           data-category-title="Portraits"
           data-images='[
             {"src": "a-man-in-Desert.jpg", "title": "Man in Desert", "time": "2025-10-20"},
             {"src": "potrait.jpg", "title": "Portrait 1", "time": "2025-09-15"},
-            {"src": "potrait 2.jpg", "title": "Portrait 2", "time": "2025-09-14"}
+            {"src": "potrait%202.jpg", "title": "Portrait 2", "time": "2025-09-14"},
+            {"src": "potrait%203.jpg", "title": "Portrait 3", "time": "2025-09-13"},
+            {"src": "potrait%204.jpg", "title": "Portrait 4", "time": "2025-09-12"}
           ]'
         >
-          <img loading="lazy" src="a-man-in-Desert.jpg" alt="Portraits"
+          <img
+            loading="lazy"
+            src="a-man-in-Desert.jpg"
+            alt="Portraits"
             class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Portraits';this.onerror=null;">
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Portraits'; this.onerror=null;"
+          />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
             <h3 class="text-white text-lg font-semibold">Portraits</h3>
           </div>
@@ -185,34 +199,89 @@
         
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-          data-category-title="Landscapes"
+          data-category-title="Nature"
           data-images='[
-            {"src": "https://placehold.co/1200x800/444/aaa?text=Landscape+1", "title": "Misty Mountains", "time": "2025-08-05"},
-            {"src": "https://placehold.co/1200x800/555/bbb?text=Landscape+2", "title": "Coastal Sunset", "time": "2025-07-22"}
+            {"src": "sunset.jpg", "title": "Golden Sunset", "time": "2025-10-18"},
+            {"src": "nature%202.jpg", "title": "Misty Forest", "time": "2025-07-22"},
+            {"src": "nature%203.jpg", "title": "Mountain Peak", "time": "2025-06-10"},
+            {"src": "nature%204.jpg", "title": "Nature 4", "time": "2025-06-09"},
+            {"src": "nature%205.jpg", "title": "Nature 5", "time": "2025-06-08"}
           ]'
         >
-          <img loading="lazy" src="https://placehold.co/600x400/444/aaa?text=Landscapes" alt="Landscapes"
+          <img
+            loading="lazy"
+            src="sunset.jpg"
+            alt="Nature"
             class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Landscapes';this.onerror=null;">
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Nature'; this.onerror=null;"
+          />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-            <h3 class="text-white text-lg font-semibold">Landscapes</h3>
+            <h3 class="text-white text-lg font-semibold">Nature</h3>
           </div>
         </div>
 
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-          data-category-title="Street Photography"
+          data-category-title="Wildlife"
           data-images='[
-            {"src": "https://placehold.co/1200x800/333/999?text=Street+1", "title": "City Rush", "time": "2025-10-01"},
-            {"src": "https://placehold.co/1200x800/404040/888?text=Street+2", "title": "Alley Cat", "time": "2025-06-18"},
-            {"src": "https://placehold.co/1200x800/222/777?text=Street+3", "title": "Rainy Reflections", "time": "2025-05-30"}
+            {"src": "Horses.jpg", "title": "Running Horses", "time": "2025-09-05"},
+            {"src": "wildlife-2.jpg", "title": "Bird in Flight", "time": "2025-08-11"},
+            {"src": "wildlife-3.jpg", "title": "Resting Deer", "time": "2025-07-30"}
           ]'
         >
-          <img loading="lazy" src="https://placehold.co/600x400/333/999?text=Street" alt="Street"
+          <img
+            loading="lazy"
+            src="Horses.jpg"
+            alt="Wildlife"
             class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Street';this.onerror=null;">
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Wildlife'; this.onerror=null;"
+          />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-            <h3 class="text-white text-lg font-semibold">Street Photography</h3>
+            <h3 class="text-white text-lg font-semibold">Wildlife</h3>
+          </div>
+        </div>
+
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Travel"
+          data-images='[
+            {"src": "travel%201.jpg", "title": "Cityscape", "time": "2025-05-20"},
+            {"src": "travel%202.jpg", "title": "Ancient Ruins", "time": "2025-04-12"},
+            {"src": "travel%203.jpg", "title": "Beach Getaway", "time": "2025-03-05"},
+            {"src": "travel%204.jpg", "title": "Travel 4", "time": "2025-03-04"},
+            {"src": "travel%205.jpg", "title": "Travel 5", "time": "2025-03-03"}
+          ]'
+        >
+          <img
+            loading="lazy"
+            src="travel%201.jpg"
+            alt="Travel"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Travel'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Travel</h3>
+          </div>
+        </div>
+
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Street"
+          data-images='[
+            {"src": "street.jpg", "title": "Neon Nights", "time": "2025-10-02"},
+            {"src": "street%20(1).jpg", "title": "Street Scene 1", "time": "2025-09-18"},
+            {"src": "street%20(2).jpg", "title": "Street Scene 2", "time": "2025-09-17"},
+            {"src": "street%20(3).jpg", "title": "Street Scene 3", "time": "2025-09-16"}
+          ]'
+        >
+          <img 
+            loading="lazy" 
+            src="street.jpg" 
+            alt="Street" 
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105" 
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Street'; this.onerror=null;" />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Street</h3>
           </div>
         </div>
 
@@ -221,21 +290,28 @@
 
     <section id="about" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
+
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <div class="profile-img-container rounded-lg shadow-xl border-4 border-gray-700">
-          <img src="profile.png" alt="Profile" class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover"
-            onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile';this.onerror=null;">
+        <div 
+            class="profile-img-container rounded-lg shadow-xl border-4 border-gray-700">
+          <img
+            src="profile.png"
+            alt="A photo of me"
+            class="w-64 h-64 md:w-80 md:h-80 rounded-lg object-cover"
+            onerror="this.src='https://placehold.co/400x400/27272a/71717a?text=Profile+Pic'; this.onerror=null;"
+          />
         </div>
+
         <div class="flex-1 text-lg text-gray-300">
           <p class="mb-4">
-            I’m still learning and exploring new techniques, and this website is my digital sketchbook.
+            Hello! I'm Rajesh, a photographer by passion. My journey with photography began years ago, and I've been captivated by the art of capturing moments ever since.
+          </T>
+          <p class="mb-4">
+            I'm still learning and exploring new techniques every day. My goal is to tell a story with every shot, focusing on light, emotion, and the tiny details that make each moment unique.
+          </p>  
+          <p>
+            Whether it's landscapes, portraits, or street photography, I'm always searching for a new perspective.
           </p>
-          <p class="mb-6">
-            Whether it's landscapes, portraits, or candid street photography, I'm always searching for a new perspective and the story hidden within the frame.
-          </p>
-          <blockquote class="border-l-4 border-sky-500 pl-4 py-2 text-gray-400 italic">
-            "Photography is the art of making memories tangible."
-          </blockquote>
         </div>
       </div>
     </section>
@@ -245,6 +321,7 @@
       <p class="text-lg text-gray-400 mb-10 max-w-3xl">
         I'm always excited to collaborate on new projects or discuss potential commissions. Feel free to reach out!
       </p>
+      
       <div class="text-lg">
         <a href="mailto:rajyesnt@gmail.com" 
            class="inline-flex items-center gap-3 bg-gray-800 p-4 rounded-lg
@@ -309,6 +386,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      
       // --- MOBILE MENU ---
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -332,7 +410,7 @@
       // Close menu when a link is clicked
       mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-      // --- LIGHTBOX ---
+      // --- "NEXT/PREV" LIGHTBOX ---
       const lightbox = document.getElementById('lightbox');
       const lightboxTitle = document.getElementById('lightbox-title');
       const lightboxContent = document.getElementById('lightbox-content');
@@ -345,10 +423,17 @@
       let currentIndex = 0;
       let currentCategoryTitle = '';
 
+      // Helper function to format date strings
       function formatDate(dateString) {
         if (!dateString) return "";
-        const date = new Date(dateString + 'T00:00:00');
-        return date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+         try {
+          const date = new Date(dateString + 'T00:00:00'); // Add time to avoid timezone issues
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString(undefined, options);
+        } catch (e) {
+          console.error("Could not format date:", dateString, e);
+          return dateString; // Return original string if formatting fails
+        }
       }
 
       function showImage(index) {
@@ -365,7 +450,7 @@
               onerror="this.src='https://placehold.co/1200x800/27272a/71717a?text=Image+Missing';this.onerror=null;">
             <div class="mt-4 text-center">
               <h4 class="text-xl font-semibold text-white">${image.title || 'Untitled'}</h4>
-              <p class="text-sm text-gray-400">${formattedDate || 'Unknown Date'}</p>
+              <p class="text-sm text-gray-400">Taken on: ${formattedDate || 'Unknown Date'}</p>
             </div>
           </div>`;
         
@@ -379,7 +464,23 @@
       function openLightbox(categoryItem) {
         currentCategoryTitle = categoryItem.getAttribute('data-category-title');
         const imagesJson = categoryItem.getAttribute('data-images');
-        currentImages = JSON.parse(imagesJson);
+        
+        if (!imagesJson) {
+           console.error("No data-images attribute found on category item");
+           return;
+        }
+        
+        try {
+            currentImages = JSON.parse(imagesJson);
+        } catch (e) {
+            console.error("Failed to parse data-images JSON:", e);
+            return;
+        }
+
+        if (currentImages.length === 0) {
+           console.error("No images in category");
+           return;
+        }
         
         showImage(0); // Show the first image
         
@@ -420,23 +521,29 @@
       const typingSpeed = 250, deleteSpeed = 150, pauseEnd = 2000, pauseStart = 500;
 
       function typeLoop() {
-        if (!nameElement) return;
+        if (!nameElement || !cursorElement) return;
+
         if (isTyping) {
+          // Typing
           if (i < nameToType.length) {
+            cursorElement.style.animation = 'blink-caret 0.75s step-end infinite';
             nameElement.textContent += nameToType.charAt(i++);
             setTimeout(typeLoop, typingSpeed);
           } else {
+            // Pause at end
             isTyping = false;
-            cursorElement.style.animation = 'none';
+            cursorElement.style.animation = 'none'; // Stop blinking
             setTimeout(typeLoop, pauseEnd);
           }
         } else {
+          // Deleting
           if (i > 0) {
+            cursorElement.style.animation = 'blink-caret 0.75s step-end infinite';
             nameElement.textContent = nameToType.substring(0, --i);
             setTimeout(typeLoop, deleteSpeed);
           } else {
+            // Pause at start
             isTyping = true;
-            cursorElement.style.animation = 'blink-caret 0.75s step-end infinite';
             setTimeout(typeLoop, pauseStart);
           }
         }
@@ -444,28 +551,28 @@
       typeLoop();
 
       // --- NAVIGATION SCROLL-SPY ---
+      // This is more efficient than the old scroll listener
       const sections = document.querySelectorAll('section[id]');
       const navLinks = document.querySelectorAll('header .nav-link');
 
-      window.addEventListener('scroll', () => {
-        let currentSectionId = '';
-        const scrollY = window.pageYOffset;
-
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100; // 100px offset for header
-          const sectionHeight = section.offsetHeight;
-          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            currentSectionId = section.getAttribute('id');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+            
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (activeLink) {
+              activeLink.classList.add('active');
+            }
           }
         });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${currentSectionId}`) {
-            link.classList.add('active');
-          }
-        });
+      }, { 
+        rootMargin: '-50% 0px -50% 0px', // Triggers when section is in middle of viewport
+        threshold: 0 
       });
+
+      sections.forEach(section => observer.observe(section));
     });
   </script>
 </body>
