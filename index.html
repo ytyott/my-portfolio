@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rajesh - Photography Portfolio</title>
 
-  <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome for Social Icons --><link
+  <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 
-  <!-- Custom Tailwind Config --><script>
+  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -24,7 +24,7 @@
     };
   </script>
 
-  <!-- Custom CSS --><style>
+  <style>
     .nav-link.active {
       color: #38bdf8;
       font-weight: 600;
@@ -50,23 +50,25 @@
       100% { transform: rotate(360deg); }
     }
 
+    /* --- CSS FIX APPLIED --- */
     .profile-img-container {
       position: relative;
-      width: 260px; /* 256px + 4px border * 2 */
-      height: 260px; /* 256px + 4px border * 2 */
+      width: 264px; /* 256px img + (4px border * 2) */
+      height: 264px; /* 256px img + (4px border * 2) */
       border-radius: 8px; /* Match img border-radius */
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden; 
     }
-    
+     
     @media (min-width: 768px) {
         .profile-img-container {
-            width: 332px; /* 320px + 4px border * 2 */
-            height: 332px; /* 320px + 4px border * 2 */
+            width: 328px; /* 320px img + (4px border * 2) */
+            height: 328px; /* 320px img + (4px border * 2) */
         }
     }
+    /* --- END CSS FIX --- */
 
 
     .profile-img-container::before {
@@ -98,7 +100,7 @@
 </head>
 
 <body class="bg-gray-900 text-gray-300 font-sans antialiased">
-  <!-- ===== Header ===== --><header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
+  <header class="sticky top-0 z-50 w-full bg-gray-950/90 backdrop-blur-md border-b border-gray-700 shadow-sm">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-bold text-gray-400 hover:text-sky-400 transition-colors">
         <span 
@@ -112,7 +114,7 @@
         <li><a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a></li>
       </ul>
 
-      <!-- Colorful Social Media Hovers --><div class="flex items-center space-x-5 text-gray-400">
+      <div class="flex items-center space-x-5 text-gray-400">
         <a href="https://instagram.com/raj__yes" target="_blank" aria-label="Instagram"
           class="hover:text-pink-500 transition-all hover:scale-110">
           <i class="fab fa-instagram text-xl"></i>
@@ -129,8 +131,8 @@
     </nav>
   </header>
 
-  <!-- ===== Main Content ===== --><main class="container mx-auto px-6">
-    <!-- ===== Gallery Section ===== --><section id="home" class="py-20 pt-24 md:pt-32">
+  <main class="container mx-auto px-6">
+    <section id="home" class="py-20 pt-24 md:pt-32">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
         Gallery
       </h2>
@@ -138,102 +140,54 @@
         A collection of my favorite work. Click any category to see more.
       </p>
 
-      <!-- NEW: Gallery Category Grid with updated data structure -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Category 1: Portraits -->
-<div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Portraits"
-      data-images='[
-        {"src": "a-man-in-Desert.jpg", "title": "Man in Desert", "time": "2025-10-20"},
-        {"src": "potrait.jpg", "title": "Portrait 1", "time": "2025-09-15"},
-        {"src": "potrait%202.jpg", "title": "Portrait 2", "time": "2025-09-14"},
-        {"src": "potrait%203.jpg", "title": "Portrait 3", "time": "2025-09-13"},
-        {"src": "potrait%204.jpg", "title": "Portrait 4", "time": "2025-09-12"}
-      ]'
-    >
-      <img
-        loading="lazy"
-        src="a-man-in-Desert.jpg"
-        alt="Portraits"
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-        onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
-      />
-      <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Portraits</h3>
-      </div>
-    </div>
 
-    <div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Landscapes"
-      data-images='[
-        {"src": "sunset.jpg", "title": "Sunset", "time": "2025-10-19"}
-      ]'
-    >
-      <img
-        loading="lazy"
-        src="sunset.jpg"
-        alt="Landscapes"
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-        onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
-      />
-      <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Landscapes</h3>
-      </div>
-    </div>
-
-    <div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Wildlife"
-      data-images='[
-        {"src": "Horeses.jpg", "title": "Horses", "time": "2025-09-30"}
-      ]'
-    >
-      <img
-        loading="lazy"
-        src="Horeses.jpg"
-        alt="Wildlife"
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-        onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
-      />
-      <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Wildlife</h3>
-      </div>
-    </div>
-    
-    <div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Street Photography"
-      data-images='[
-        {"src": "street.jpg", "title": "Street", "time": "2025-10-05"}
-      ]'
-    </div>
-        <!-- Category 2: Nature -->
         <div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Nature"
-      data-images='[
-        {"src": "sunset.jpg", "title": "Golden Sunset", "time": "2025-10-18"},
-        {"src": "nature%202.jpg", "title": "Misty Forest", "time": "2025-07-22"},
-        {"src": "nature%203.jpg", "title": "Mountain Peak", "time": "2025-06-10"},
-        {"src": "nature%204.jpg", "title": "Nature 4", "time": "2025-06-09"},
-        {"src": "nature%205.jpg", "title": "Nature 5", "time": "2025-06-08"}
-      ]'
-    >
-      <img
-        loading="lazy"
-        src="sunset.jpg"
-        alt="Nature"
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-        onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
-      />
-      <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Nature</h3>
-      </div>
-    </div>
-        <!-- Category 3: Wildlife -->
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Portraits"
+          data-images='[
+            {"src": "a-man-in-Desert.jpg", "title": "Man in Desert", "time": "2025-10-20"},
+            {"src": "potrait.jpg", "title": "Portrait 1", "time": "2025-09-15"},
+            {"src": "potrait%202.jpg", "title": "Portrait 2", "time": "2025-09-14"},
+            {"src": "potrait%203.jpg", "title": "Portrait 3", "time": "2025-09-13"},
+            {"src": "potrait%204.jpg", "title": "Portrait 4", "time": "2025-09-12"}
+          ]'
+        >
+          <img
+            loading="lazy"
+            src="a-man-in-Desert.jpg"
+            alt="Portraits"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Portraits</h3>
+          </div>
+        </div>
+
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Nature"
+          data-images='[
+            {"src": "sunset.jpg", "title": "Golden Sunset", "time": "2025-10-18"},
+            {"src": "nature%202.jpg", "title": "Misty Forest", "time": "2025-07-22"},
+            {"src": "nature%203.jpg", "title": "Mountain Peak", "time": "2025-06-10"},
+            {"src": "nature%204.jpg", "title": "Nature 4", "time": "2025-06-09"},
+            {"src": "nature%205.jpg", "title": "Nature 5", "time": "2025-06-08"}
+          ]'
+        >
+          <img
+            loading="lazy"
+            src="sunset.jpg"
+            alt="Nature"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Nature</h3>
+          </div>
+        </div>
+
         <div
           class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
           data-category-title="Wildlife"
@@ -255,68 +209,53 @@
           </div>
         </div>
 
-        <!-- Category 4: Travel -->
         <div
-      class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-      data-category-title="Travel"
-      data-images='[
-        {"src": "travel%201.jpg", "title": "Cityscape", "time": "2025-05-20"},
-        {"src": "travel%202.jpg", "title": "Ancient Ruins", "time": "2025-04-12"},
-        {"src": "travel%203.jpg", "title": "Beach Getaway", "time": "2025-03-05"},
-        {"src": "travel%204.jpg", "title": "Travel 4", "time": "2025-03-04"},
-        {"src": "travel%205.jpg", "title": "Travel 5", "time": "2025-03-03"}
-      ]'
-    >
-      <img
-        loading="lazy"
-        src="travel%201.jpg"
-        alt="Travel"
-        class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-        onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
-      />
-      <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-        <h3 class="text-white text-lg font-semibold">Travel</h3>
-      </div>
-    </div>
-        <!-- Category 5: Street -->
-        <!-- Category 5: Street -->
-        <div
-  class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-  data-category-title="Street"
-  data-images='[
-    {"src": "street.jpg", "title": "Neon Nights", "time": "2025-10-02"},
-    {"src": "street%20(1).jpg", "title": "Street Scene 1", "time": "2025-09-18"},
-    {"src": "street%20(2).jpg", "title": "Street Scene 2", "time": "2025-09-17"},
-    {"src": "street%20(3).jpg", "title": "Street Scene 3", "time": "2025-09-16"}
-  ]'
->
-  <img loading="lazy" src="street.jpg" alt="Street" class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;" />
-  <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-    <h3 class="text-white text-lg font-semibold">Street</h3>
-  </div>
-</div><!-- Category 5: Street -->
-        <div
-  class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
-  data-category-title="Street"
-  data-images='[
-    {"src": "street.jpg", "title": "Neon Nights", "time": "2025-10-02"},
-    {"src": "street%20(1).jpg", "title": "Street Scene 1", "time": "2025-09-18"},
-    {"src": "street%20(2).jpg", "title": "Street Scene 2", "time": "2025-09-17"},
-    {"src": "street%20(3).jpg", "title": "Street Scene 3", "time": "2025-09-16"}
-  ]'
->
-  <img loading="lazy" src="street.jpg" alt="Street" class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;" />
-  <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
-    <h3 class="text-white text-lg font-semibold">Street</h3>
-  </div>
-</div>
-    </section>
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Travel"
+          data-images='[
+            {"src": "travel%201.jpg", "title": "Cityscape", "time": "2025-05-20"},
+            {"src": "travel%202.jpg", "title": "Ancient Ruins", "time": "2025-04-12"},
+            {"src": "travel%203.jpg", "title": "Beach Getaway", "time": "2025-03-05"},
+            {"src": "travel%204.jpg", "title": "Travel 4", "time": "2025-03-04"},
+            {"src": "travel%205.jpg", "title": "Travel 5", "time": "2025-03-03"}
+          ]'
+        >
+          <img
+            loading="lazy"
+            src="travel%201.jpg"
+            alt="Travel"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.src='https://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Travel</h3>
+          </div>
+        </div>
 
-    <!-- ===== About Section ===== --><section id="about" class="py-20 border-t border-gray-700">
+        <div
+          class="gallery-category-item group bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 relative cursor-pointer"
+          data-category-title="Street"
+          data-images='[
+            {"src": "street.jpg", "title": "Neon Nights", "time": "2025-10-02"},
+            {"src": "street%20(1).jpg", "title": "Street Scene 1", "time": "2025-09-18"},
+            {"src": "street%20(2).jpg", "title": "Street Scene 2", "time": "2WELCOME-17"},
+            {"src": "street%20(3).jpg", "title": "Street Scene 3", "time": "2025-09-16"}
+          ]'
+        >
+          <img loading="lazy" src="street.jpg" alt="Street" class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.src='httpss://placehold.co/600x400/27272a/71717a?text=Image+Missing'; this.onerror=null;" />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-black/50 backdrop-blur-sm">
+            <h3 class="text-white text-lg font-semibold">Street</h3>
+          </div>
+        </div>
+
+      </div>
+      </section>
+
+    <section id="about" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">About Me</h2>
 
       <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <!-- Profile Image Container for Rotating Glow --><div 
+        <div 
             class="profile-img-container rounded-lg shadow-xl border-4 border-gray-700">
           <img
             src="profile.png"
@@ -340,7 +279,7 @@
       </div>
     </section>
 
-    <!-- ===== Contact Section ===== --><section id="contact" class="py-20 border-t border-gray-700">
+    <section id="contact" class="py-20 border-t border-gray-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Get In Touch</h2>
       <p class="text-lg text-gray-400 mb-8 max-w-3xl">
         I'm always excited to collaborate on new projects or discuss potential commissions. The best way to reach me is by email.
@@ -358,30 +297,25 @@
     </section>
   </main>
 
-  <!-- ===== Footer ===== --><footer class="text-center py-10 mt-20 border-t border-gray-700 text-gray-500">
+  <footer class="text-center py-10 mt-20 border-t border-gray-700 text-gray-500">
     <p>&copy; 2025 Rajesh Tiwari. All rights reserved.</p>
   </footer>
 
-  <!-- ===== NEW Scrollable Lightbox ===== -->
   <div id="lightbox" class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300">
     
-    <!-- Lightbox Content Box -->
     <div class="relative bg-gray-900 w-full max-w-4xl max-h-[90vh] rounded-lg shadow-2xl p-4 flex flex-col">
-        <!-- Header: Title and Close Button -->
         <div class="flex justify-between items-center pb-3 border-b border-gray-700 flex-shrink-0">
-            <h3 id="lightbox-title" class="text-2xl font-bold text-white"></h3>
-            <span id="lightbox-close" class="text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
+          <h3 id="lightbox-title" class="text-2xl font-bold text-white"></h3>
+          <span id="lightbox-close" class="text-white text-5xl font-light cursor-pointer hover:text-gray-300 transition-colors">&times;</span>
         </div>
         
-        <!-- NEW: Scrollable Image List Container -->
         <div id="lightbox-content" class="flex-1 overflow-y-auto p-4 space-y-8">
-          <!-- Images will be dynamically inserted here by JavaScript -->
-        </div>
+          </div>
     </div>
 
   </div>
 
-  <!-- ===== JavaScript ===== --><script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
 
       // --- NEW Scrollable Lightbox Logic ---
@@ -523,7 +457,15 @@
       const pauseEnd = 2000;
       const pauseStart = 500;
 
+      // --- JAVASCRIPT FIX APPLIED ---
       function typeLoop() {
+        // --- FIX: Add guard clause ---
+        // Exit if the element doesn't exist to prevent errors
+        if (!nameElement) {
+          console.error("Typewriter element #rajesh-name not found.");
+          return; 
+        }
+        
         if (cursorElement) {
             cursorElement.style.animation = 'blink-caret 0.75s step-end infinite';
             cursorElement.style.borderRight = '2px solid #9ca3af';
@@ -552,6 +494,7 @@
           }
         }
       }
+      // --- END JAVASCRIPT FIX ---
 
       typeLoop();
 
@@ -559,4 +502,3 @@
   </script>
 </body>
 </html>
-
